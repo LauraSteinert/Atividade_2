@@ -1,0 +1,29 @@
+/* Conforme observado no exercício anterior, um método pode chamar outro método. 
+De fato, durante os exemplos em aula o método main (que também é um método) chamava outros métodos. 
+Escreva um método chamado areaDoQuadrado que tem um parâmetro de entrada do tipo double chamado lado (e que corresponde ao tamanho do lado do quadrado) e retorna o valor da área do quadrado.
+Porém, pede-se que seu método chame (ou invoque) o método areaRetangulo do exercício anterior para realizar esse cálculo. 
+Algo semelhante ao que foi feito pelo métodos areaRetangulo ao invocar o método areaTrapezio.
+*/
+class atividade3{
+	static double areaTrapezio(
+		double baseMaior, double baseMenor, double altura){
+		return(((baseMaior + baseMenor)*altura)/2);
+	
+	}
+	static double areaRetangulo(double base, double altura){
+		double area = areaTrapezio(base,base,altura);
+		return areaTrapezio(base,base,altura);
+		
+	}
+	static double areaDoQuadrado(double lado){
+		double area = areaRetangulo(lado,lado);
+		System.out.println("Area do quadrado:" + area);
+		return area;
+	}	
+	
+	public static void main(String[]args){
+		double resultado;
+		resultado = areaDoQuadrado(2);
+		
+	}
+}
